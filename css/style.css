@@ -1,0 +1,933 @@
+:root {
+    --primary-color: #c72727;
+    --secondary-color: #f99500;
+    --light-color: #f3f3f3;
+    --dark-color: #333;
+    --max-width: 1100px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+html , body {
+    font-family: 'Lato', sans-serif;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+    background: var(--light-color);
+}
+  
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+p {
+    margin: .5rem 0;
+}
+
+img {
+    width: 100%;
+}
+
+
+/* Utility */
+.container {
+    max-width: var(--max-width);
+    margin: auto;
+    overflow: hidden;
+}
+
+.btn {
+    display: inline-block;
+    border: none;
+    background: var(--dark-color);
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+  }
+  
+  .btn-light { background: var(--light-color) }
+  .btn-primary { background: var(--primary-color) }
+  .btn-secondary { background: var(--secondary-color) }
+  
+  .btn-block {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .btn:hover {
+    opacity: 0.9;
+  }
+
+
+
+.scroll-top{
+    height: 100px;
+    width: 100px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 20px gray;
+    background-color: white;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 1;
+  
+    transform: scale(0.8);
+    transition: 0.3s ease-in-out transform;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scroll-top:hover{
+    transform: scale(0.9);
+}
+
+.scroll-top #icon{
+    color: black;
+    font-size: 50px;
+}
+
+
+/* Navigation */
+#main-nav {
+    background: #fff;
+    position: sticky;
+    top: 0;
+    padding: 20px;
+    z-index: 2;
+}
+
+#main-nav .Logo {
+    float: left;
+    width: 100px;
+    display: block;
+    font-family: 'Staatliches', cursive;
+    line-height: 1;
+}
+#main-nav .logo_pic {
+    float: left;
+    width: 40px;
+    margin-right: 4px;
+    display: block;
+}
+  
+#main-nav ul {
+    float: right;   
+}
+
+#main-nav ul li{
+    display: inline-block;
+}
+
+#main-nav ul li a {
+    display: block;
+    margin-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 4px;
+    padding-right: 4px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#main-nav ul li a.current {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+#main-nav ul li a:hover {
+    background: var(--light-color);
+    color: var(--dark-color);
+}
+
+.checkbtn{
+    font-size: 30px;
+    color: var(--primary-color);
+    float: right;
+    line-height: 60px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+#check{
+    display: none;
+}
+
+
+
+ /* RESPONSIVE NAVBAR */
+
+@media (max-width : 768px){
+
+    #main-nav .Logo{
+        font-size: 15px;
+        width: 150px;
+        margin-top: 10px;
+        display: block;
+    }
+    .checkbtn{
+         display: block;
+    }
+
+    ul{
+        position: fixed;
+        width: 100%;
+        margin-top: -13px;
+        top: 80px;
+        background: whitesmoke;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+    }
+
+    nav ul li{
+         display: block;
+            
+    }
+
+    nav ul li a{
+        font-size: 15px;
+        
+        text-align: center;
+    }
+
+    #check:checked ~ ul{
+        left: 0;
+    }
+
+    .scroll-top{
+        height: 50px;
+        width: 50px;
+        border-radius: 6px;
+        box-shadow: 0px 0px 20px gray;
+        background-color: white;
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        cursor: pointer;
+        z-index: 1;
+      
+        transform: scale(0.8);
+        transition: 0.3s ease-in-out transform;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+
+
+
+/* SHOWCASE */
+#showcase {
+    color: #fff;
+    background: #333;
+    padding: 2rem;
+    position: relative;
+}
+
+#showcase:before {
+    content: '';
+    background: url('../img/showcase.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+}
+
+#showcase .showcase-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+  
+#showcase .showcase-content {
+    z-index: 1;
+}
+
+  
+#showcase .showcase-content .showcase-paragraph {
+    margin-bottom: 1rem;
+    overflow: hidden;
+    font-size: 50px;   
+}
+#showcase .showcase-content .mini-paragraph {
+    margin-bottom: 1rem;
+    overflow: hidden;
+    font-size: 25px;   
+}
+
+/* #RESPONSIVE SHOWCASE  */
+@media (max-width : 500px){
+
+    #showcase .showcase-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        justify-content: center;
+        align-items: center;
+        height: 40vh;
+    }
+    #showcase .showcase-content .showcase-paragraph {
+        margin-bottom: 1rem;
+        overflow: hidden;
+        font-size: 25px;   
+    }
+    #showcase .showcase-content .mini-paragraph {
+        margin-bottom: 1rem;
+        overflow: hidden; 
+        font-size: 15px; 
+    } 
+}
+
+
+/* OUR STRATEGY */
+
+#strategy {
+    background: #fff;
+    color: #333;
+    padding: 2rem;
+    position: relative;
+    text-align: center;
+}
+
+#strategy .strategy-container {
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+#strategy .strategy-content .strategy-paragraph{
+    font-size: 50px;
+}
+
+#strategy .strategy-content p{
+    font-size: 25px;
+}
+
+/* #RESPONSIVE STRATEGY CONTAINER  */
+@media (max-width : 500px){
+    #strategy .strategy-container {
+        justify-content: center;
+        align-items: center;
+        height: 40vh;
+    }
+    
+    #strategy .strategy-content .strategy-paragraph{
+        font-size: 25px;
+    }
+    
+    #strategy .strategy-content p{
+        font-size: 15px;
+    } 
+}
+
+/* INVESTMENT PORTFOLIO */
+#portfolio{
+    background-color:  #333;
+    padding: 2rem;
+    height: 80vh;
+}
+.portfolio-heading{
+    text-align: center;
+    color: #fff;
+    font-size: 50px;
+}
+#portfolio .portfolio-container{
+    display: flex;
+    margin-top: 40px;
+}
+.card1{
+    width: 400px;
+    background: url('../img/showcasedark.jpg') no-repeat center center/cover;
+    height: 300px;
+    margin: 20px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: #333;
+}
+.card2{
+    background: url('../img/showcasedark.jpg') no-repeat center center/cover;
+    width: 400px;
+    height: 300px;
+    margin: 20px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+#portfolio .portfolio-container .card1, .card2 .content{
+    color: #fff;
+    font-size: 25px;
+    position: relative;
+}
+
+@media (max-width : 500px){
+
+    #portfolio{
+        background-color:  #333;
+        padding: 2rem;
+        height: 100vh;
+    }
+    .portfolio-heading{
+        text-align: center;
+        color: #fff;
+        font-size: 25px;
+    }
+    #portfolio .portfolio-container{
+        display: block;
+        margin-top: 5px;
+    }
+
+    .card1{
+        width: 250px;
+        background: url('../img/showcasedark.jpg') no-repeat center center/cover;
+        height: 250px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-color: #333;
+    }
+
+    .card2{
+        background: url('../img/showcasedark.jpg') no-repeat center center/cover;
+        width: 250px;
+        height: 250px;
+        border-radius: 5px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center; 
+    }
+
+    #portfolio .portfolio-container .card1, .card2 .content{
+        color: #fff;
+        font-size: 15px;
+        position: relative;
+    }
+}
+
+
+
+/* ABOUT PAGE */
+#team{
+    padding: 2rem;
+    background-color: #fff;
+}
+.team-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 100px;
+}
+
+.team-heading{
+    text-align: center;
+    color: var(--dark-color);
+    font-size: 50px;
+}
+
+.card{
+    width: 250px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.card img{
+    width: 100px;
+    height: 110px;
+    margin-left: 72px;
+
+}
+
+.card-content{
+    padding: 20px;
+    text-align: center;
+}
+
+
+/* REAL ESTATE PAGE  */
+.estate-card{
+    width: 250px;
+    background-color:var(--light-color);
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.estate-card img{
+    width: 150px;
+    height: 150px;
+    margin-left: 50px;
+    padding-top: 10px;
+    border-radius: 50%;
+}
+
+/* BUSINESS OWNERS PAGE  */
+
+#steward-info{
+    height: 60vh;
+    padding: 2rem;
+}
+#steward-info .info-heading, .commitment{
+    float: left;
+    width: 30%;
+}
+.info-content{
+    float: right;
+    font-size: 20px;
+    width: 60%;
+}
+.info-paragraph, .commitment-paragraph{
+    font-size: 40px;
+}
+
+
+#commitment-info, #mission-info{
+    height: 120vh;
+    background-color: var(--dark-color);
+    color: #fff;
+}
+
+#commitment-info .commitment-content{
+    height: 120vh;
+    background-color: rgb(97, 96, 96);
+    padding:2rem ;
+    float: right;
+    width: 60%;
+}
+.commitment{
+    margin-left: 80px;
+    padding: 2rem;
+}
+
+
+
+
+
+/* PHILANTHROPY PAGE */
+
+.mission{
+   float: left;
+   width: 50%;
+   background: url('../img/pexels.jpg') no-repeat center center/cover; 
+   height: 120vh;
+}
+.mission-content{
+    height: 120vh;
+    padding:2rem ;
+    float: right;
+    width: 50%;
+}
+.mission-statement{
+    text-align: center;
+}
+.mission-content .contact-label{
+    margin: auto;
+    width: 100%;
+}
+
+
+
+/* CONTACT PAGE  */
+#contact-info{
+    height: 100vh;
+    padding: 2rem;  
+    
+}
+#contact-info .info-heading{
+    float: left;
+    width: 50%;
+}
+#contact-info .info-heading .address{
+    font-size: 20px;
+    text-decoration: underline;
+}
+.contact-label{
+    float: right;
+    font-size: 20px;
+    width: 50%;
+}
+#contact-form{
+    padding: 2rem;
+    background-color:var(--dark-color);
+    border-radius: 5px;
+}
+#contact-form .form-group label{
+    display: block;
+    color: #fff;
+    margin: 10px 0px;
+}
+.form-group input ,
+.form-group textarea{
+    width: 100%;
+    padding: 10px;
+    border: 2px #ddd solid;
+    border-radius: 2px;
+}
+.form-group textarea{
+    height: 200px;
+}
+#contact-form .btn{
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+#map-section{
+    width: 100%;
+    background: var(--light-color);
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 1024px) and (max-width: 1024px){
+    .mission-content .contact-label{
+        float: right;
+        width: 100%;
+        font-size: 15px;
+        margin-top: -30px;
+        
+    }
+
+    .form-group textarea{
+        height: 100px;
+    }
+}
+
+
+
+
+@media only screen and (min-width: 768px) and (max-width: 768px){
+    #steward-info .info-content{
+        display: block;
+        font-size: 20px;
+        width: 100%;
+    }
+
+    #commitment-info{
+        height: 150vh;
+        overflow: hidden;
+        font-size: smaller;
+    }
+
+    #commitment-info .commitment{
+        display: block;
+        float: none;
+        width: 100%;
+        text-align: center;
+        margin: auto;
+    }
+
+    #commitment-info .commitment-content{
+        display: block;
+        float: none;
+        width: 100%;
+        text-align: center;
+        height: 168vh;
+    }
+    
+
+    .mission-content{
+        text-align: center;
+        padding-left: 2rem;
+        margin: auto;
+    }
+    .mission-content .commitment-paragraph{
+        font-size: 30px;
+        /* margin: auto; */
+        margin-left: 20px;
+    }
+
+    .mission-content .commitment-paragraph p{
+        font-size: small;
+    }
+
+
+
+    .mission-content .contact-label{
+        float: right;
+        width: 100%;
+        font-size: 15px;
+        margin-top: -30px;
+        
+    }
+
+    .form-group textarea{
+        height: 100px;
+    }
+
+    #contact-info .info-heading .address{
+        font-size: 15px;
+        text-decoration: underline;
+    }
+
+    #contact-info .info-heading .info-paragraph{
+        font-size: 25px;
+    }
+
+
+}
+
+
+@media (max-width : 500px){
+    
+    #team .team-heading{
+        font-size: 25px;
+    }
+
+    #steward-info{
+        height: 80vh;
+        padding: 2rem;
+    }
+    #steward-info .info-heading{
+        display: block;
+        float: none;
+    }
+    #steward-info .info-content{
+        display: block;
+        float: none;
+        font-size: 15px;
+        width: 100%;
+    }
+    .info-paragraph, .commitment-paragraph{
+        font-size: 25px;
+    }
+
+    #commitment-info{
+        height: 220vh;
+        overflow: hidden;
+        font-size: smaller;
+        /* padding: 2rem; */
+    }
+
+    #commitment-info .commitment{
+        display: block;
+        float: none;
+        width: 100%;
+        text-align: left;
+        margin: auto;
+    }
+
+    #commitment-info .commitment-content{
+        display: block;
+        float: none;
+        width: 100%;
+        text-align: center;
+        height: 168vh;
+    }
+
+    #mission-info{
+        height: 180vh;
+     }
+    .mission{
+        display: block;
+        float: none;
+        width: 100%;
+        text-align: center;
+        margin: auto;
+        height: 50vh;
+    }
+
+    .mission-content{
+        height: 150vh;
+        padding:2rem ;
+        display: block;
+        float: none;
+        width: 100%;
+    }
+
+
+    #contact-info .info-heading{
+        display: block;
+        float: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    .contact-label{
+        display: block;
+        float: none;
+        font-size: 15px;
+        width: 100%;
+    }
+
+    #contact-info{
+        height: 150vh;
+        padding: 2rem;  
+        
+    }
+    .form-group textarea{
+        height: 100px;
+    }
+
+    #contact-info .info-heading .address{
+        font-size: 15px;
+        text-decoration: underline;
+    }
+    #contact-info .info-heading{
+        padding: 2rem;
+    }
+    #contact-info .info-heading .list{
+        text-align: center;
+    }
+    
+    /* #team .team-heading p{
+        font-size: 15px;
+    }  */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* #FOOTER */
+#main-footer {
+    background: var(--light-color);
+    color: #fff;
+    padding: 2rem;
+    height: 40vh;
+}
+
+#main-footer .logo_pic {
+    float: left;
+    width: 60px;
+    margin-right: 4px;
+    display: block;
+}
+
+#main-footer .Logo {
+    float: left;
+    width: 80px;
+    display: block;
+    font-family: 'Staatliches', cursive;
+    line-height: 1;
+    color: #333;
+}
+
+
+
+#main-footer .footer-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1.5rem;
+}
+
+.footer-heading, .footer-link{
+    color:var(--primary-color)
+}
+.footer-note, .list{
+    color: var(--dark-color);
+}
+.address{
+    color: var(--dark-color);
+    font-weight:bold;
+}
+
+.footer-policy{
+    position: relative;
+    text-align: end;
+    padding-top: 60px;
+}
+
+/* RESPONSIVE FOOTER  */
+@media (max-width : 500px){
+    #main-footer {
+        background: var(--light-color);
+        color: #fff;
+        padding: 2rem;
+        height: 60vh;
+    }
+    .list{
+        display: contents;
+        text-align: left;
+        font-size: small;
+    }
+    .footer-note, .footer-policy{
+        font-size: small;
+    }
+
+    #main-footer .footer-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 1.5rem;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 768px){
+    #main-footer .footer-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1.5rem;
+    }
+
+    .list{
+        display: contents;
+        text-align: left;
+        font-size: small;
+    }
+}
+
+
+
+
+
